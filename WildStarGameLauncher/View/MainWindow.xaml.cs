@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 using System.Web.Script.Serialization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Linq;
 using WildStarGameLauncher.Model;
 using WildStarGameLauncher.Static;
 using WildStarGameLauncher.Static.Natives;
@@ -36,7 +37,7 @@ namespace WildStarGameLauncher
         {
             InitializeComponent();
             btnLaunchWildstar.IsEnabled = false;
-            
+
             SetupListbox();
 
             SetButtonState();
@@ -81,7 +82,7 @@ namespace WildStarGameLauncher
 
             CreateProcess(
                 mainWindowViewModel.FilePath,
-                $"/auth {hostname} /authNc {hostname} /lang {clientLanguages[mainWindowViewModel.ClientLanguage]} /patcher {hostname} /SettingsKey WildStar /realmDataCenterId 9",
+                $"/auth {hostname} /authNc {hostname} /lang {ddLang.SelectedItem} /patcher {hostname} /SettingsKey WildStar /realmDataCenterId 9",
                 IntPtr.Zero, IntPtr.Zero, false, 0, IntPtr.Zero, null, ref si, out pi);
         }
 
@@ -123,5 +124,11 @@ namespace WildStarGameLauncher
                 btnLaunchWildstar.IsEnabled = false;
             }
         }
+        public void ddLang_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Skip the first enum value because its "none"
+            ddLang.ItemsSource = Enum.GetValues(typeof(GameLanguage)).Cast<GameLanguage>().Skip(1).ToArray();
+        }
     }
 }
+    

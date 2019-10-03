@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WildStarGameLauncher"
         mc:Ignorable="d"
-        Title="WildStar Game Launcher" Height="250" Width="300"
+        Title="WildStar Game Launcher" Height="266.816" Width="304.484"
         ResizeMode="NoResize"
         Closing="Window_Closing">
     <Grid>
@@ -29,5 +29,8 @@
         <Button x:Name="btnRemoveServer" HorizontalAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="-" Height="20" Width="20" Grid.Row="1" Margin="0,125,30,0" Click="BtnRemoveServer_Click"/>
         <Button x:Name="btnLaunchWildstar" Content="Launch WildStar" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="110" Grid.Row="1" Margin="0,0,0,10" Height="30" Click="Button_LaunchWildstar_Click" IsEnabled="False"/>
         <Button x:Name="btnSetWildstarLocation" Content="Set WildStar Location" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150" Grid.Row="1" Margin="0,0,0,10" Height="30" Click="MenuItem_SetWildStarPath_Click" IsEnabled="True"/>
+        <Label x:Name="Lang" Content="Language" HorizontalAlignment="Left" Height="26" Margin="10,131,0,0" Grid.Row="1" VerticalAlignment="Top" Width="67" IsEnabled="False"/>
+        <ComboBox x:Name="ddLang" HorizontalAlignment="Left" Margin="77,135,0,0" Grid.Row="1" VerticalAlignment="Top" Width="120" SelectedIndex="0" Loaded="ddLang_Loaded">
+        </ComboBox>
     </Grid>
 </Window>
