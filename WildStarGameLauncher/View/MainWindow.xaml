@@ -1,0 +1,33 @@
+﻿<Window x:Class="WildStarGameLauncher.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WildStarGameLauncher"
+        mc:Ignorable="d"
+        Title="WildStar Game Launcher" Height="250" Width="300"
+        ResizeMode="NoResize"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Name="rowMenu" Height="20"/>
+            <RowDefinition Name="rowServerSelect" Height="392*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Menu x:Name="menu" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="0">
+            <MenuItem Header="File">
+                <MenuItem Header="Set WildStar Client Location" HorizontalAlignment="Left" Click="MenuItem_SetWildStarPath_Click"/>
+                <Separator></Separator>
+                <MenuItem Header="Exit" Click="MenuItem_Exit_Click"/>
+            </MenuItem>
+        </Menu>
+        <Label x:Name="label" Content="Servers" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Row="1" RenderTransformOrigin="0.87,0.539" Margin="10,0,0,0"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Stretch" Height="100" VerticalAlignment="Top" Margin="10,26,10,0" Grid.Row="1" />
+        <Button x:Name="btnAddServer" HorizontalAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="+" Height="20" Width="20" Grid.Row="1" Margin="0,125,10,0" Click="BtnAddServer_Click"/>
+        <Button x:Name="btnRemoveServer" HorizontalAlignment="Right" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="-" Height="20" Width="20" Grid.Row="1" Margin="0,125,30,0" Click="BtnRemoveServer_Click"/>
+        <Button x:Name="btnLaunchWildstar" Content="Launch WildStar" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="110" Grid.Row="1" Margin="0,0,0,10" Height="30" Click="Button_LaunchWildstar_Click" IsEnabled="False"/>
+        <Button x:Name="btnSetWildstarLocation" Content="Set WildStar Location" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150" Grid.Row="1" Margin="0,0,0,10" Height="30" Click="MenuItem_SetWildStarPath_Click" IsEnabled="True"/>
+    </Grid>
+</Window>
