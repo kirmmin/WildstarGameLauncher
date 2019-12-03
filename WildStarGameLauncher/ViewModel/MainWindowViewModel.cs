@@ -31,8 +31,22 @@ namespace WildStarGameLauncher.ViewModel
                 else
                     FilePath = "";
             }
+            else
+                AttemptAutomaticSelect();
 
             LoadServers();
+        }
+
+        public void AttemptAutomaticSelect()
+        {
+            string defaultPath = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFilesX86) + "\\NCSOFT\\WildStar\\Client64\\WildStar64.exe";
+
+            SetLanguage(defaultPath);
+
+            if (ClientLanguage != GameLanguage.None)
+            {
+                FilePath = defaultPath;
+            }
         }
 
         public void HandleFileSelect()
