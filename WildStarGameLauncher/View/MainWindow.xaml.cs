@@ -82,7 +82,7 @@ namespace WildStarGameLauncher
 
             CreateProcess(
                 mainWindowViewModel.FilePath,
-                $"/auth {hostname} /authNc {hostname} /lang {ddLang.SelectedItem} /patcher {hostname} /SettingsKey WildStar /realmDataCenterId 9",
+                $"/auth {hostname} /authNc {hostname} /lang {clientLanguages[(GameLanguage)ddLang.SelectedItem]} /patcher {hostname} /SettingsKey WildStar /realmDataCenterId 9",
                 IntPtr.Zero, IntPtr.Zero, false, 0, IntPtr.Zero, null, ref si, out pi);
         }
 
@@ -124,6 +124,7 @@ namespace WildStarGameLauncher
                 btnLaunchWildstar.IsEnabled = false;
             }
         }
+        
         public void ddLang_Loaded(object sender, RoutedEventArgs e)
         {
             // Skip the first enum value because its "none"
